@@ -69,7 +69,6 @@ class LeagueTest < Minitest::Test
     Team.from_csv("./data/teams.csv")
     Game.from_csv("./test/fixtures/team_truncated.csv")
     assert_equal "Utah Royals FC", league.lowest_scoring_home
-    require 'pry'; binding.pry
   end
 
 end
