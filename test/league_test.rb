@@ -55,4 +55,21 @@ class LeagueTest < Minitest::Test
     assert_equal "Atlanta United", league.lowest_scoring_visitor
   end
 
+  def test_highest_scoring_home
+    league = League.new
+    GameStats.from_csv("./test/fixtures/game_teams_truncated.csv")
+    Team.from_csv("./data/teams.csv")
+    Game.from_csv("./test/fixtures/team_truncated.csv")
+    assert_equal "New England Revolution", league.highest_scoring_home
+  end
+
+  def test_lowest_scoring_home
+    league = League.new
+    GameStats.from_csv("./test/fixtures/game_teams_truncated.csv")
+    Team.from_csv("./data/teams.csv")
+    Game.from_csv("./test/fixtures/team_truncated.csv")
+    assert_equal "Utah Royals FC", league.lowest_scoring_home
+    require 'pry'; binding.pry
+  end
+
 end

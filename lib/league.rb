@@ -85,4 +85,38 @@ class League
       find_team_id(first_answer)
   end
 
+  def highest_scoring_home
+    average_score_home = Hash.new
+    Game.all_games.each do |game|
+      if average_score_home[game.home_team_id] == nil
+        average_score_home[game.home_team_id] = 0
+        average_score_home[game.home_team_id] += game.home_goals
+      else
+        average_score_home[game.home_team_id] += game.home_goals
+      end
+    end
+    answer = average_score_home.max_by do |key, value|
+    average_score_home[key]
+      end
+      first_answer = answer.first
+      find_team_id(first_answer)
+  end
+
+  def lowest_scoring_home
+    average_score_home = Hash.new
+    Game.all_games.each do |game|
+      if average_score_home[game.home_team_id] == nil
+        average_score_home[game.home_team_id] = 0
+        average_score_home[game.home_team_id] += game.home_goals
+      else
+        average_score_home[game.home_team_id] += game.home_goals
+      end
+    end
+    answer = average_score_home.min_by do |key, value|
+    average_score_home[key]
+      end
+      first_answer = answer.first
+      find_team_id(first_answer)
+  end
+
 end
