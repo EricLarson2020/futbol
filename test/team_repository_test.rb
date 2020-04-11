@@ -21,4 +21,5 @@ class TeamRepositoryTest < Minitest::Test
     game_repository = TeamRepository.new('./test/fixtures/game_teams_truncated.csv', './data/teams.csv')
     assert_equal 1, game_repository.fewest_goals_scored("6")
   end
+
 end

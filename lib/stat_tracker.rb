@@ -14,7 +14,7 @@ class StatTracker
     league_repository = LeagueRepository.new(file_paths[:games], file_paths[:game_teams], file_paths[:teams])
     team_repository = TeamRepository.new(file_paths[:game_teams], file_paths[:teams])
     game_repository = GameRepository.new(file_paths[:games])
-    game_team_repository = GameTeamsRepository.new(file_paths[:game_teams])
+    game_team_repository = GameTeamsRepository.new(file_paths[:games],file_paths[:game_teams])
     stat_tracker = StatTracker.new(team_repository, game_repository, game_team_repository, league_repository)
 
   end
@@ -145,9 +145,8 @@ end
     @team_repository.fewest_goals_scored(id)
   end
 
-# These methods each take a season id as an argument
-# and return the values described below.
-	# Name of the Team with the most tackles in the season
   def most_tackles(season_id)
+    @game_team_repository.most_tackles(season_id)
   end
+
 end
