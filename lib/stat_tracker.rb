@@ -26,7 +26,7 @@ class StatTracker
     @game_team_repository = game_team_repository
     @league_repository = league_repository
   end
-  
+
 
   def highest_total_score
     @game_repository.highest_total_score
@@ -145,5 +145,9 @@ end
     @team_repository.fewest_goals_scored(id)
   end
 
-
+# These methods each take a season id as an argument
+# and return the values described below.
+	# Name of the Team with the most tackles in the season
+  def most_tackles(season_id)
+  end
 end
