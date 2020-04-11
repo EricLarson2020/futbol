@@ -234,7 +234,7 @@ end
   end
 
   def fewest_tackles
-
+@game_team_repository.fewest_tackles(season_id)
   end
 
 end
